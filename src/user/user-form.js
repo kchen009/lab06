@@ -81,7 +81,7 @@ class UserForm extends Component {
                 {this.validator.message('role', this.user.role, 'required')}
                 <br></br>
                 <label htmlFor="role">Active:</label>
-                <select id="active" name="active" value={this.user.active} onChange={event => this.handleChange(event)} value={this.user.active}>
+                <select id="active" name="active" value={this.user.active} onChange={event => this.handleChange(event)}>
                     <option value="true">True</option>
                     <option value="false">False</option>
                 </select>

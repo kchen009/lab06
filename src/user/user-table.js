@@ -26,7 +26,7 @@ export const UserTable = observer(({ usersStore }) => (
 
 export const TableRow = ({ user, setEditingUser }) => (
     <tr >
-        <td><button onClick={event => setEditingUser(user.id)}>edit</button></td>
+        <td><button onClick={() => setEditingUser(user.id)}>edit</button></td>
         <td>{user.id}</td>
         <td>{user.first}</td>
         <td>{user.last}</td>

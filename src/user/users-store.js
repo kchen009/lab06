@@ -79,7 +79,7 @@ export class UsersStore {
 
     @action
     saveUser = (user) => {
-        if (this.editingUser != user) {
+        if (this.editingUser !== user) {
             this.editingUser = user;
             if (this.editingUser.id) {
                 this.updateUser();
