@@ -5,30 +5,30 @@ export class UsersStore {
     nextID = this.users.length - 1;
     @observable fetchState = 'idle';
     @observable users = [
-        // {
-        //     id: '0',
-        //     first: 'bob',
-        //     last: 'smith',
-        //     email: 'adc@gmail.com',
-        //     role: 'student',
-        //     active: 'true'
-        // },
-        // {
-        //     id: '1',
-        //     first: 'kevin',
-        //     last: 'wilson',
-        //     email: 'kwilson@gmail.com',
-        //     role: 'professor',
-        //     active: 'true'
-        // },
-        // {
-        //     id: '2',
-        //     first: 'Steve',
-        //     last: 'hart',
-        //     email: 'shart@gmail.com',
-        //     role: 'student',
-        //     active: 'true'
-        // }
+        {
+            id: '0',
+            first: 'bob',
+            last: 'smith',
+            email: 'adc@gmail.com',
+            role: 'student',
+            active: 'true'
+        },
+        {
+            id: '1',
+            first: 'kevin',
+            last: 'wilson',
+            email: 'kwilson@gmail.com',
+            role: 'professor',
+            active: 'true'
+        },
+        {
+            id: '2',
+            first: 'Steve',
+            last: 'hart',
+            email: 'shart@gmail.com',
+            role: 'student',
+            active: 'true'
+        }
 
     ]
 
@@ -41,8 +41,8 @@ export class UsersStore {
     // create a user
     @action
     createUser = user => {
-        let id = this.nextID += 1;
-        let newUser = { ...user, id };
+        // let id = this.nextID += 1;
+        let newUser = { ...user };
         console.log('newUser', newUser)
         fetch('http://localhost:5000/users', {
             method: 'post',
