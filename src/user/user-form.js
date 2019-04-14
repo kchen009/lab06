@@ -7,10 +7,11 @@ class UserForm extends Component {
         super(props);
         this.state = {
             user: {
-                firstName: '',
-                lastName: '',
+                first: '',
+                last: '',
                 email: '',
-                role: 'student'
+                role: 'student',
+                active: 'true'
             },
             emailUsed: false
         }
@@ -22,9 +23,11 @@ class UserForm extends Component {
 
     onFormSubmit(event) {
         event.preventDefault();
-
+        
         if (this.validator.allValid() && !this.doesUserExist(this.state.user.email)) {
             this.props.usersStore.createUser(this.state.user);
+            // reset the form after creating new user
+            event.target.reset();
         } else {
             this.validator.showMessages();
             // rerender to show messages for the first time
@@ -42,12 +45,12 @@ class UserForm extends Component {
         return (
             <form onSubmit={event => this.onFormSubmit(event)}>
                 <label htmlFor="firstName">First Name:</label>
-                <input autoComplete="off" type="text" id="firstName" name="firstName" onChange={event => this.handleChange(event)} />
-                {this.validator.message('firstName', this.state.user.firstName, 'required|alpha')}
+                <input autoComplete="off" type="text" id="first" name="first" onChange={event => this.handleChange(event)} />
+                {this.validator.message('firstName', this.state.user.first, 'required|alpha')}
                 <br></br>
                 <label htmlFor="lastName">Last Name:</label>
-                <input autoComplete="off" type="text" id="lastName" name="lastName" onChange={event => this.handleChange(event)} />
-                {this.validator.message('lastName', this.state.user.lastName, 'required|alpha')}
+                <input autoComplete="off" type="text" id="last" name="last" onChange={event => this.handleChange(event)} />
+                {this.validator.message('lastName', this.state.user.last, 'required|alpha')}
                 <br></br>
                 <label htmlFor="email">Email:</label>
                 <input autoComplete="off" type="text" id="email" name="email" onChange={event => this.handleChange(event)} />
@@ -61,7 +64,14 @@ class UserForm extends Component {
                 </select>
                 {this.validator.message('role', this.state.user.role, 'required')}
                 <br></br>
-                <input type="submit" value="Create Todo" />
+                <label htmlFor="role">Active:</label>
+                <select id="active" name="active" value={this.state.user.active} onChange={event => this.handleChange(event)}>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                {this.validator.message('role', this.state.user.active, 'required')}
+                <br></br>
+                <input type="submit" value="Create User" />
             </form>
         )
     }

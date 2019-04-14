@@ -10,6 +10,7 @@ export const UserTable = observer(({ usersStore }) => (
                 <th>Last Name</th>
                 <th>Email Name</th>
                 <th>Role</th>
+                <th>Active</th>
             </tr>
             {usersStore.users.map(t => (
                 <TableView
@@ -24,9 +25,10 @@ export const UserTable = observer(({ usersStore }) => (
 export const TableView = ({ user }) => (
     <tr >
         <td>{user.id}</td>
-        <td>{user.firstName}</td>
-        <td>{user.lastName}</td>
+        <td>{user.first}</td>
+        <td>{user.last}</td>
         <td>{user.email}</td>
         <td>{user.role}</td>
+        <td>{user.active}</td>
     </tr>
 );
