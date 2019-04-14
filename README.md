@@ -2,13 +2,13 @@
 
 cd into root directory
 
-###1. run flask api
+### 1. run flask api
 
  - `export FLASK_APP=api.py`
  - `export FLASK_ENV=development`
  - `flask run`
 
-###2. Run react development server 
+### 2. Run react development server 
 - `yarn install`
 - `yarn start`
 
