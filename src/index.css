@@ -17,3 +17,7 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.srv-validation-message{
+  color: red
+}
