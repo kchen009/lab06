@@ -226,4 +226,4 @@ const TodoApp = observer(() => {
 })
 
 
-render(<TodoApp />, document.getElementById("app"));
+render(<TodoApp />, document.getElementById("root"));
