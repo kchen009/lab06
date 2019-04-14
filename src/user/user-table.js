@@ -5,6 +5,7 @@ export const UserTable = observer(({ usersStore }) => (
     <table>
         <tbody>
             <tr>
+                <th>edit</th>
                 <th>id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -13,17 +14,19 @@ export const UserTable = observer(({ usersStore }) => (
                 <th>Active</th>
             </tr>
             {usersStore.users.map(t => (
-                <TableView
+                <TableRow
                     key={t.id}
                     user={t}
+                    setEditingUser={usersStore.setEditingUser}
                 />
             ))}
         </tbody>
     </table>
 ));
 
-export const TableView = ({ user }) => (
+export const TableRow = ({ user, setEditingUser }) => (
     <tr >
+        <td><button onClick={event => setEditingUser(user.id)}>edit</button></td>
         <td>{user.id}</td>
         <td>{user.first}</td>
         <td>{user.last}</td>

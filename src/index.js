@@ -16,7 +16,6 @@ class App extends Component {
     this.usersStore = new UsersStore();
   }
   componentDidMount() {
-    // const usersStore = new UsersStore();
     this.usersStore.fetchUsers();
   }
 
@@ -27,7 +26,7 @@ class App extends Component {
         <UserTable usersStore={this.usersStore} />
         <br />
         <h2>
-          Create User
+          Create / Update User
           </h2>
         <UserForm usersStore={this.usersStore} />
         <br /><hr />
@@ -37,31 +36,5 @@ class App extends Component {
 
   }
 }
-
-
-
-
-
-// const TodoApp = observer(() => {
-
-//   const todoStore = new TodoStore();
-//   document.todoStore = todoStore
-
-//   return (
-//     <div>
-//       <TodoForm todoStore={todoStore} />
-//       <hr />
-//       <TodoFilter todoStore={todoStore} />
-//       <hr />
-//       <TodoList todoStore={todoStore} />
-//       <TotalCompletedCount todoStore={todoStore} />
-//       <RemoveCompletedTodos todoStore={todoStore} />
-//       <hr />
-//       <JSONView store={todoStore} />
-//     </div>)
-
-// })
-
-
 
 render(<App />, document.getElementById("root"));
