@@ -23,7 +23,7 @@ class UserForm extends Component {
     onFormSubmit(event) {
         event.preventDefault();
 
-        if (this.validator.allValid() && !this.checkIfUserExists(this.state.user.email)) {
+        if (this.validator.allValid() && !this.doesUserExist(this.state.user.email)) {
             this.props.usersStore.createUser(this.state.user);
         } else {
             this.validator.showMessages();
@@ -31,8 +31,8 @@ class UserForm extends Component {
             this.forceUpdate();
         }
     }
-
-    checkIfUserExists(email) {
+    // checks if email is in use
+    doesUserExist(email) {
         let emailUsed = this.props.usersStore.userEmails.includes(email);
         this.setState({ emailUsed })
         return emailUsed;

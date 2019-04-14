@@ -28,7 +28,7 @@ export class UsersStore {
 
     ]
 
-    // get arrya of user emails
+    // get array of user emails
     @computed
     get userEmails() {
         return this.users.map((user) => user.email);
